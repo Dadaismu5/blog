@@ -39,7 +39,7 @@ a{
 }
 a:hover {
     color: white;
-    }
+}
 a:visited{
 	color: inherit;
 }
@@ -63,6 +63,12 @@ a:visited{
 	cursor: pointer;
 	font-size: 1.2em;
 	font-color: white;
+}
+.avisos{
+	background-color: #F5ECF6;
+	text-transform: uppercase;
+	font-color: pink !important;
+	cursor: crosshair;
 }
 .red{
 	background-color: red;
