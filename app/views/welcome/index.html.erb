@@ -1,3 +1,7 @@
-<h1>Bienvenido a mi nuevo Blog</h1>
+<% if user_signed_in? %>
+<h1>Bienvenido <%= current_user.email%></h1>
+<%else%>
+<h1> Bienvenido, <%= link_to " registrate", new_user_registration_path %> o <%= link_to "inicia sesión", new_user_session_path %> </h1>
+<%end%>
 
 

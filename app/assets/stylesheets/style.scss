@@ -7,6 +7,10 @@ a{
 	text-decoration: none;
 
 }
+a:hover{
+	color: gray;
+	text-decoration: outline;
+}
 .be-red{
 	background-color: #EBEBEC;
 }
@@ -30,20 +34,17 @@ a{
 	text-transform: uppercase;
 
 }
-.top-space{
-	margin-top:  1em;
-}
 .large-padding{
 	padding: 7px 7px 7px;
 	padding-top: 7px;
 }
-a:hover {
-    color: white;
-}
 a:visited{
 	color: inherit;
 }
-.field{
+.left{
+	text-align: left;
+}
+.field, .top-space, .actions{
 	margin-top: 1em;
 }
 .form-control{

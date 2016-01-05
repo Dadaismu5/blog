@@ -8,28 +8,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
-	<nav class="be-red white large-padding">
-		<ul class="no-list row center-xs nolista middle-xs">
-		<li class="col-md logo">
-		<h1 class="no-margin" id="logo">Appeal©</h1>
-		</li>
-			<li class="col-md white">
-				<%= link_to "Inicio", root_path %>
-			</li>
-			<li class="col-md white">
-				Diseño
-			</li>
-			<li class="col-md white">
-				Programación
-			</li>
-			<li class="col-md white">
-				Tecnología
-			</li>
-		</ul>
-	</nav>
-</header>
-
+<%= render "partials/navigation" %>
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
 <%= yield %>
 
 </body>

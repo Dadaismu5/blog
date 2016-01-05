@@ -1,13 +1,14 @@
 class ArticlesController < ApplicationController
+	before_action :authenticate_user!, except: [:show, :index]
+	before_action :set_article, except: [:index, :new, :create]
 	def index
 		#Nos busca todos los registros en la BD
 		@articles = Article.all
 	end
 	#GET /articles/:id
 	def show
-		#Busca los registros por ID
-		@article = Article.find(params[:id])
-		#Where
+		@article.update_visits_count
+		@comment = Comment.new
 	end
 	#GET /articles/new
 	def new 
@@ -16,11 +17,12 @@ class ArticlesController < ApplicationController
 	end
 	#editar artuculo
 	def edit
-		@article = Article.find(params[:id])
+
 	end
 	#POST /articles
 		def create
-			@article = Article.new(article_params)
+			#INSERT INTO
+			@article = current_user.articles.new(article_params)
 			if @article.save
 				redirect_to @article
 		else
@@ -35,7 +37,6 @@ class ArticlesController < ApplicationController
 	end
 	#PUT /articles/:id
 	def update
-		@article = Article.find(params[:id])
 		if @article.update(article_params)
 			redirect_to @article
 		else
@@ -44,7 +45,10 @@ class ArticlesController < ApplicationController
 end
 	#private - todo lo que está dentro (por debajo son metodos o acciones privadas)
 	private
+	def set_article
+		@article = Article.find(params[:id])
+	end
 	def article_params	
-		params.require(:article).permit(:title,:body)
+		params.require(:article).permit(:title,:body,:cover)
 	end
 end
